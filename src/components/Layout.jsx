@@ -1,4 +1,5 @@
 import { GeneralContext } from '../context/General';
+import { Link } from 'react-router-dom';
 import React from 'react';
 
 const Layout = (Component) => {
@@ -40,6 +41,10 @@ const Layout = (Component) => {
       console.log('Updated');
     }
 
+    componentWillUnmount() {
+      console.log('Destroyed');
+    }
+
     render() {
       let { setTitle, setStatus } = this.context;
       let { inputText, inputStatus } = this.state;
@@ -64,6 +69,8 @@ const Layout = (Component) => {
             <button
               onClick={() => setStatus(inputStatus)}>Change Status</button>
           </div>
+          <Link to={'/'}>Home</Link>
+          <Link to={'/about'}>About</Link>
         </div>
       );
     }
